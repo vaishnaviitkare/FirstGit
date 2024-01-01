@@ -1,3 +1,4 @@
+/*
 //getElementById
 const mainHeading=document.getElementById('main-heading');
 mainHeading.textContent='Fruit World';
@@ -20,7 +21,7 @@ const list=document.getElementsByTagName('li');
 list[4].style.color='blue';
 for(let i=0;i<list.length;i++){
   list[i].style.fontStyle='italic';
-}
+}*/
 //query selector and query selectorAll
 const basket=document.querySelector('#basket-heading');
 basket.style.color='brown';
