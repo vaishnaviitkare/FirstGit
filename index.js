@@ -48,3 +48,27 @@ for(let i=0;i<even.length;i++){
 even[i].style.backgroundColor='brown';
 even[i].style.color='white';
 }
+//creating h3 tag
+const h3=document.createElement('h3');
+const text=document.createTextNode('Buy high quality organic fruits online');
+h3.appendChild(text);
+//putting h3 tag in first div
+const div=document.getElementsByTagName('div');
+const first=div[0];
+//append at last
+first.appendChild(h3);
+h3.style.fontStyle='italic';
+//creating paragraph tag 
+const para=document.createElement('p');
+const add=document.createTextNode('Total fruits: 4');
+para.appendChild(add);
+//adding paragraph into second div
+const second=div[1];//creating 2nd div
+//adding paragraph before ul in div
+const ul=document.querySelector('.fruits');
+second.insertBefore(para,ul);
+//set id to paragraph tag
+para.id='fruits-total';
+
+
+
