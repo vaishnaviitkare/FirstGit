@@ -10,3 +10,8 @@ const thanks=document.getElementById('thanks');
 thanks.innerHTML='<p>Please visit us again</p>';
 
 
+const fru=document.getElementsByClassName('fruit');
+fru[2].style.backgroundColor='yellow';
+for(let i=0;i<fru.length;i++){
+  fru[i].style.fontWeight='bold'
+}
