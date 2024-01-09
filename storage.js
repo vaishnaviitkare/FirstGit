@@ -8,6 +8,10 @@ function storage(event){
        localStorage.setItem('Name',name);
        localStorage.setItem('Email',email);
        localStorage.setItem('PhoneNumber',phonenumber);
+       //output of this is -
+       Name:xyz
+       Email:xyz@gmail.com
+       Phone:9876546789
        */
       //also we stored this data as an object in local storage
         //creating object
@@ -35,7 +39,10 @@ function storage(event){
       
         //convert string to obj
         //const get=JSON.parse(localStorage.getItem("userDetails")));
-      
+      /*
+      output of this is -
+       {Name:"xyz",Email:"xyz@gmail.com",Phone:"9876546789"}
+      */
 
 
 }
