@@ -51,7 +51,6 @@ const newEdit=document.createElement('button');
 //here when we click ul anywhere click event is happened
 ul.addEventListener('click',function(event){
   //when we click on delete button whose class name is delete-btn remove list
-  //event-ul,target-li
   if(event.target.classList.contains('delete-btn')){
     //now event is list
     //here we delete list, on which we clicked
