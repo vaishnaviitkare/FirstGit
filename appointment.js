@@ -53,13 +53,13 @@ function showUserOnScreen(obj){
     editButton.id='edit';
     editButton.style.width='80px';
   editButton.onclick=()=>{
-      /*const editInfo=JSON.parse(localStorage.getItem(obj.email));
+      /*also we write
+      const editInfo=JSON.parse(localStorage.getItem(obj.email));
       parentElem.removeChild(childElem);
       localStorage.removeItem(obj.email);
       document.getElementById('ename').value=editInfo.username;
       document.getElementById('email').value=editInfo.email;
       document.getElementById('phone').value=editInfo.phone; 
-      also we write
       */
       parentElem.removeChild(childElem);
       localStorage.removeItem(obj.email);
