@@ -52,7 +52,6 @@ const newEdit=document.createElement('button');
 ul.addEventListener('click',function(event){
   //when we click on delete button whose class name is delete-btn remove list
   if(event.target.classList.contains('delete-btn')){
-    //now event is list
     //here we delete list, on which we clicked
      const fruitToDelete=event.target.parentElement;
     //remove list of ul 
