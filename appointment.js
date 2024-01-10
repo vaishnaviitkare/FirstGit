@@ -38,10 +38,38 @@ function showUserOnScreen(obj){
     deleteButton.value="Delete";
     deleteButton.className='delete';
     deleteButton.style.width='80px';
-  childElem.appendChild(deleteButton);
     deleteButton.onclick=()=>{
        localStorage.removeItem(obj.email);
        parentElem.removeChild(childElem);
     }
-   parentElem.appendChild(childElem);
+    /*
+    When you click on this edit button, the user details should be 
+    removed from the screen and from the local storage and should populate the input fields 
+    with the existing values.
+    */
+    const editButton=document.createElement('input');
+    editButton.type="button";
+    editButton.value="Edit";
+    editButton.id='edit';
+    editButton.style.width='80px';
+  editButton.onclick=()=>{
+      /*const editInfo=JSON.parse(localStorage.getItem(obj.email));
+      parentElem.removeChild(childElem);
+      localStorage.removeItem(obj.email);
+      document.getElementById('ename').value=editInfo.username;
+      document.getElementById('email').value=editInfo.email;
+      document.getElementById('phone').value=editInfo.phone; 
+      also we write
+      */
+      parentElem.removeChild(childElem);
+      localStorage.removeItem(obj.email);
+      document.getElementById('ename').value=obj.username;
+      document.getElementById('email').value=obj.email;
+      document.getElementById('pno').value=obj.phone;
+    }
+    childElem.appendChild(deleteButton);
+    childElem.appendChild(editButton);
+  parentElem.appendChild(childElem);
+
+   
 }
