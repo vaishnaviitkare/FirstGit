@@ -13,11 +13,6 @@ function handleFormSubmit(event){
     const username=event.target.username.value;
     const email=event.target.email.value;
     const phone=event.target.phone.value;
-    const li=document.createElement('li');
-    //const text=document.createTextNode(name+' '+'-'+' '+email+' '+'-'+' '+phone);
-    //li.appendChild(text);
-    li.innerHTML=username+' '+'-'+' '+email+' '+'-'+' '+phone;
-    document.getElementById('ul1').appendChild(li);
   const obj={
     username,
      email,
@@ -25,4 +20,28 @@ function handleFormSubmit(event){
   }
   const newObj=JSON.stringify(obj);
   localStorage.setItem(email,newObj);
+  showUserOnScreen(obj);
+}
+/*
+Deliverables:
+1. The 'li' that you are appending to the unordered list, make sure that it has a delete button.
+2. When you click on that delete button, then that particular user's details should be removed from the screen and from the local storage.
+*/
+function showUserOnScreen(obj){
+    const parentElem=document.getElementById('listOfitems');
+    const childElem=document.createElement('li');
+    //const text=document.createTextNode(name+' '+'-'+' '+email+' '+'-'+' '+phone);
+    //li.appendChild(text);
+    childElem.textContent=obj.username+' '+'-'+' '+obj.email+' '+'-'+' '+obj.phone+' ';
+    const deleteButton=document.createElement('input');
+    deleteButton.type="button";
+    deleteButton.value="Delete";
+    deleteButton.className='delete';
+    deleteButton.style.width='80px';
+  childElem.appendChild(deleteButton);
+    deleteButton.onclick=()=>{
+       localStorage.removeItem(obj.email);
+       parentElem.removeChild(childElem);
+    }
+   parentElem.appendChild(childElem);
 }
