@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="expense_tracker.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-dark">
+        <a class="navbar-brand" style="color:beige;margin-left: 50px;">Expense Tracker</a>
+      </nav><br>
+      <div class="box">
+    <form onsubmit="FormSubmit(event)">
+        <label for="amt">Choose expenseamount</label>
+        <input type="number" name="amount" id="amt" ><br>
+        <label for="desp">Choose description</label>
+        <input type="text" name="description" id="desp" ><br>
+        <label for="cat">Choose a category</label>
+        <select name="category" id="cat">
+            <option value="food">Food</option>
+            <option value="fuel">Fuel</option>
+            <option value="movie">Movie</option>
+        </select><br>
+        <button type="submit" class="bt" id="btn">Add Expense</button><hr><br>
+    <ul class="list" id="list">
+    </ul>
+    </form>
+    </div>
+  </body>
+</html>
