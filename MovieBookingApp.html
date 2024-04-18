@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="MovieBookingApp.css"/>
+</head>
+<body>
+    <div id="div1">
+    <h1>Movie Booking</h1>
+    <label for="totalBooked" id="label1" >Total Booked:</label>
+    </div>
+   <div id="div2">
+    <form id="form1">
+     <br><label for="searchBar">Find Slot</label>
+     <input type="text" id="searchBar" name="search" placeholder="Search slot....">
+    </form>
+   </div>
+    <div id="div3">
+     <form id="form2" onsubmit="handleForm(event)">
+      <br><label for="userName">UserName: </label>
+      <input type="text" name="userName" id="userName" >
+      <label for="seatNumber">Seat Number: </label>
+      <input type="number" name="seatNumber" id="seatNumber">
+      <button type="submit" id="add">ADD</button>
+     </form>
+     <ul></ul>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
+<script src="MovieBookingApp.js"></script>
+</html>
