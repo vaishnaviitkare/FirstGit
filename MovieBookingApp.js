@@ -10,7 +10,7 @@ function handleForm(event){
     
 }
 async function checkNumber(){
-   const res= await axios.get("https://crudcrud.com/api/e0503eff9ff545cab625fade0e18298c/MovieBooking")
+   const res= await axios.get("https://crudcrud.com/api/4eac7072c1a644edb8ff4a57a397bfb9/MovieBooking")
           const cSeat=document.getElementById('seatNumber').value;
            const array=res.data;
            for(let ele of array){
@@ -28,17 +28,35 @@ async function addData(obj1){
     let flag= await checkNumber();
     if(flag){
         console.log(1);
-    axios.post("https://crudcrud.com/api/e0503eff9ff545cab625fade0e18298c/MovieBooking",obj1)
+    axios.post("https://crudcrud.com/api/4eac7072c1a644edb8ff4a57a397bfb9/MovieBooking",obj1)
          .then((res)=>{
-        console.log(res);
-           
+            getData(res.data._id);
+            console.log();
           })
          .catch((err)=>console.log(err));
 }
          
 }
+function getData(id){
+    axios.get(`https://crudcrud.com/api/4eac7072c1a644edb8ff4a57a397bfb9/MovieBooking/${id}`)
+       .then((res)=>{
+            showUser(res.data);
+            obtainData();
+       })
+       .catch((err)=>console.log(err));
+}
+function obtainData(){
+    axios.get("https://crudcrud.com/api/4eac7072c1a644edb8ff4a57a397bfb9/MovieBooking")
+       .then((res)=>{
+           const array=res.data;
+           const total= array.length;
+           totalDisplay(total);
+       })
+       .catch((err)=>console.log(err));
+
+}
 window.addEventListener("DOMContentLoaded",function(){
-  axios.get("https://crudcrud.com/api/e0503eff9ff545cab625fade0e18298c/MovieBooking")
+  axios.get("https://crudcrud.com/api/4eac7072c1a644edb8ff4a57a397bfb9/MovieBooking")
        .then((res)=>{
            const array=res.data;
            for(let ele of array){
@@ -57,9 +75,10 @@ function showUser(ele){
     newUl.appendChild(newLi);
 }
 function deleteData(id){
-    axios.delete(`https://crudcrud.com/api/e0503eff9ff545cab625fade0e18298c/MovieBooking/${id}`)
+    axios.delete(`https://crudcrud.com/api/4eac7072c1a644edb8ff4a57a397bfb9/MovieBooking/${id}`)
          .then((res)=>{
             deleteDataFromScreen(id);
+            obtainData();
          })
          .catch((err)=>console.log(err));
 }
@@ -75,7 +94,7 @@ function editData(id,user,seat){
 }
 function totalDisplay(total){
     const heading=document.getElementById('label1');
-    heading.innerHTML=heading.innerHTML+total;
+    heading.innerHTML =`Total Bookings: ${total}`
 }
 const search=document.getElementById('form1');
 search.addEventListener('keyup',function(event){
