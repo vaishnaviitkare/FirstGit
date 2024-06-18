@@ -8,8 +8,9 @@ function handleForm(event){
     addData(obj1);
     
 }
+/*This function is used to check the password if it is already present then show alert
 async function checkNumber(){
-   const res= await axios.get("https://crudcrud.com/api/29c9970f5de94c64aa04b9d0839f9dbd/passwordKeeper")
+   const res= await axios.get("https://crudcrud.com/api/4eac7072c1a644edb8ff4a57a397bfb9/passwordKeeper")
           const cPass=document.getElementById('password').value;
            const array=res.data;
            for(let ele of array){
@@ -20,22 +21,39 @@ async function checkNumber(){
            }
            return true;
        
-}
-async function addData(obj1){
-    let flag= await checkNumber();
-    if(flag){
-        console.log(1);
-    axios.post("https://crudcrud.com/api/29c9970f5de94c64aa04b9d0839f9dbd/passwordKeeper",obj1)
+}*/
+function addData(obj1){
+    //let flag= await checkNumber();
+    //if(flag){
+       // console.log(1);
+    axios.post("https://crudcrud.com/api/fdd6aa872b254bc3b119a2a86bdf1546/passwordKeeper",obj1)
          .then((res)=>{
+            getData(res.data._id);
         console.log(res);
            
           })
          .catch((err)=>console.log(err));
 }
-         
+function getData(id){
+    axios.get(`https://crudcrud.com/api/fdd6aa872b254bc3b119a2a86bdf1546/passwordKeeper/${id}`)
+       .then((res)=>{
+            showUser(res.data);
+            obtainData();
+       })
+       .catch((err)=>console.log(err));
+}
+function obtainData(){
+    axios.get("https://crudcrud.com/api/fdd6aa872b254bc3b119a2a86bdf1546/passwordKeeper")
+       .then((res)=>{
+           const array=res.data;
+           const total= array.length;
+           totalDisplay(total);
+       })
+       .catch((err)=>console.log(err));
+
 }
 window.addEventListener("DOMContentLoaded",function(){
-  axios.get("https://crudcrud.com/api/29c9970f5de94c64aa04b9d0839f9dbd/passwordKeeper")
+  axios.get("https://crudcrud.com/api/fdd6aa872b254bc3b119a2a86bdf1546/passwordKeeper")
        .then((res)=>{
            const array=res.data;
            for(let ele of array){
@@ -54,9 +72,10 @@ function showUser(ele){
     newUl.appendChild(newLi);
 }
 function deleteData(id){
-    axios.delete(`https://crudcrud.com/api/29c9970f5de94c64aa04b9d0839f9dbd/passwordKeeper/${id}`)
+    axios.delete(`https://crudcrud.com/api/fdd6aa872b254bc3b119a2a86bdf1546/passwordKeeper/${id}`)
          .then((res)=>{
             deleteDataFromScreen(id);
+            obtainData();
          })
          .catch((err)=>console.log(err));
 }
@@ -72,7 +91,7 @@ function editData(id,title,password){
 }
 function totalDisplay(total){
     const heading=document.getElementById('label1');
-    heading.innerHTML=heading.innerHTML+total;
+    heading.innerHTML =`Total Bookings: ${total}`
 }
 const search=document.getElementById('form1');
 search.addEventListener('keyup',function(event){
